@@ -43,7 +43,7 @@ _release_pre() {
 
 _release_id() {
   URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
-  RELEASE_ID=$(curl -s ${URL} | TAG_NAME=${TAG_NAME} jq -r '.[] | select(.tag_name == env.TAG_NAME) | .id' | xargs)
+  RELEASE_ID=$(curl  -H "${AUTH_HEADER}" -s ${URL} | TAG_NAME=${TAG_NAME} jq -r '.[] | select(.tag_name == env.TAG_NAME) | .id' | xargs)
   echo "RELEASE_ID: ${RELEASE_ID}"
 }
 
