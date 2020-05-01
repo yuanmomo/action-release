@@ -12,4 +12,4 @@ LABEL homepage="https://opspresso.com/"
 RUN apk add -v --update bash curl file jq
 
 ADD entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash", "-vx", "/entrypoint.sh"]
